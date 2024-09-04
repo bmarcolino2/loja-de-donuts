@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja de Doces</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Loja de Doces</h1>
+        <nav>
+            <button onclick="mostrarCatalogo()">Catálogo</button>
+            <button onclick="mostrarCarrinho()">Carrinho</button>
+        </nav>
+    </header>
+
+    <!-- Página do Catálogo -->
+    <section id="catalogo" class="pagina">
+        <h2>Catálogo</h2>
+        <ul id="catalogo-list">
+            <li>
+                Mini Donut - R$ 10.00
+                <div class="opcoes">
+                    <label for="massa-1">Escolha a massa:</label>
+                    <select id="massa-1">
+                        <option value="Tradicional">Tradicional</option>
+                        <option value="Chocolate">Chocolate</option>
+                        <option value="Baunilha">Baunilha</option>
+                    </select>
+
+                    <label for="cobertura-1">Escolha a cobertura:</label>
+                    <select id="cobertura-1">
+                        <option value="Brigadeiro">Brigadeiro</option>
+                        <option value="Caramelo">Caramelo</option>
+                        <option value="Morango">Morango</option>
+                    </select>
+
+                    <label for="confeitos-1">Escolha os confeitos:</label>
+                    <select id="confeitos-1">
+                        <option value="Granulado">Granulado</option>
+                        <option value="Confete">Confete</option>
+                        <option value="Coco Ralado">Coco Ralado</option>
+                    </select>
+                </div>
+                <button onclick="adicionarAoCarrinho('Mini Donut', 10.00, 'massa-1', 'cobertura-1', 'confeitos-1')">Adicionar ao Carrinho</button>
+            </li>
+            <li>
+                Cookie - R$ 5.00
+                <div class="opcoes">
+                    <label for="massa-2">Escolha a massa:</label>
+                    <select id="massa-2">
+                        <option value="Tradicional">Tradicional</option>
+                        <option value="Chocolate">Chocolate</option>
+                        <option value="Baunilha">Baunilha</option>
+                    </select>
+
+                    <label for="cobertura-2">Escolha a cobertura:</label>
+                    <select id="cobertura-2">
+                        <option value="Brigadeiro">Brigadeiro</option>
+                        <option value="Caramelo">Caramelo</option>
+                        <option value="Morango">Morango</option>
+                    </select>
+
+                    <label for="confeitos-2">Escolha os confeitos:</label>
+                    <select id="confeitos-2">
+                        <option value="Granulado">Granulado</option>
+                        <option value="Confete">Confete</option>
+                        <option value="Coco Ralado">Coco Ralado</option>
+                    </select>
+                </div>
+                <button onclick="adicionarAoCarrinho('Cookie', 5.00, 'massa-2', 'cobertura-2', 'confeitos-2')">Adicionar ao Carrinho</button>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Página do Carrinho -->
+    <section id="carrinho" class="pagina">
+        <h2>Carrinho</h2>
+        <ul id="carrinho-list"></ul>
+        <div id="total">
+            <h3>Total: R$ <span id="total-valor">0.00</span></h3>
+        </div>
+        <footer>
+            <input type="text" id="whatsapp-number" placeholder="Número do WhatsApp">
+            <button onclick="finalizarPedido()">Finalizar Pedido</button>
+        </footer>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
