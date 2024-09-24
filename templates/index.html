@@ -6,207 +6,229 @@
     <title>Loja de Doces</title>
     <style>
         * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-body {
-    min-height: 100vh;
-    font-family: Arial, Helvetica, sans-serif;
-    display: flex;
-    flex-direction: column;
-    background: radial-gradient(circle, #faf198, #f85fe1);
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    overflow-x: hidden;
-}
+        body {
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+            background: radial-gradient(circle, #faf198, #f85fe1);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
 
-header {
-    color: rgb(7, 7, 7);
-    font-size: 24px;
-    border-bottom: 1px solid #f66bc1;
-    box-shadow: 0px 2px 4px rgba(210, 70, 168, 0.757);
-    padding: 10px 20px;
-    margin-bottom: 20px;
-    border-radius: 15px;
-    transition: transform 0.3s ease;
-}
+        header {
+            color: rgb(7, 7, 7);
+            font-size: 24px;
+            border-bottom: 1px solid #f66bc1;
+            box-shadow: 0px 2px 4px rgba(210, 70, 168, 0.757);
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+            background-image: url('https://media.istockphoto.com/id/1157621780/pt/foto/colorful-sweet-background-delicious-glazed-donuts-on-pink-background.jpg?s=612x612&w=0&k=20&c=4z0-ZkFGgKKlOaCN6dekOpW7vrl0uXsDG2bIs_7Kc40=');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0px 2px 4px rgba(210, 70, 168, 0.757);
+        }
 
-header:hover {
-    transform: scale(1.05);
-}
+        header:hover {
+            transform: scale(1.05);
+        }
 
-main {
-    flex: 1;
-    width: 100%;
-    max-width: 600px;
-    border-radius: 30px;
-    color: rgba(5, 5, 5, 0.918);
-    padding: 10px 20px;
-    margin-bottom: 20px;
-    background: rgba(255, 255, 255, 0.8);
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    animation: fadeIn 1s ease-in-out;
-}
+        main {
+            flex: 1;
+            width: 100%;
+            max-width: 600px;
+            border-radius: 30px;
+            color: rgba(5, 5, 5, 0.918);
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
 
-main ul {
-    padding: 0;
-    list-style-type: none;
-}
+        main ul {
+            padding: 0;
+            list-style-type: none;
+        }
 
-main li {
-    padding: 10px;
-    background-color: #f685b7;
-    border-bottom: 1px solid rgb(154, 19, 64);
-    margin-bottom: 5px;
-    border-radius: 5px;
-    border-style: dashed;
-    border-color: #000000;
-    color: aliceblue;
-    font-style: oblique;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-}
+        main li {
+            padding: 10px;
+            background-color: #f685b7;
+            border-bottom: 1px solid rgb(154, 19, 64);
+            margin-bottom: 5px;
+            border-radius: 5px;
+            border-style: dashed;
+            border-color: #000000;
+            color: aliceblue;
+            font-style: oblique;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
 
-main li:hover {
-    background-color: #f34ee0;
-    transform: scale(1.05);
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-}
+        main li:hover {
+            background-color: #f34ee0;
+            transform: scale(1.05);
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
 
-.delete-button, .decrease-button, .increase-button {
-    border: none;
-    border-radius: 5px;
-    color: white;
-    padding: 5px 10px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    margin-left: 10px;
-}
+        .delete-button, .decrease-button, .increase-button {
+            border: none;
+            border-radius: 5px;
+            color: white;
+            padding: 5px 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-left: 10px;
+        }
 
-.delete-button {
-    background-color: #ff80bf;
-}
+        .delete-button {
+            background-color: #ff80bf;
+        }
 
-.delete-button:hover {
-    background-color: #d94a8c;
-}
+        .delete-button:hover {
+            background-color: #d94a8c;
+        }
 
-.decrease-button, .increase-button {
-    background-color: #ff80bf;
-    font-size: 16px;
-    padding: 8px 14px;
-}
+        .decrease-button, .increase-button {
+            background-color: #ff80bf;
+            font-size: 16px;
+            padding: 8px 14px;
+        }
 
-.decrease-button:hover, .increase-button:hover {
-    background-color: #ff80bf;
-    transform: scale(1.1);
-}
+        .decrease-button:hover, .increase-button:hover {
+            background-color: #ff80bf;
+            transform: scale(1.1);
+        }
 
-footer {
-    width: 100%;
-    max-width: 600px;
-    display: flex;
-    padding: 10px 20px;
-    background: radial-gradient(circle, #f881e6, #fff79d);
-    border: 2px dashed rgb(186, 59, 249);
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    border-radius: 15px;
-}
+        footer {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            padding: 10px 20px;
+            background: radial-gradient(circle, #f881e6, #fff79d);
+            border: 2px dashed rgb(186, 59, 249);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            border-radius: 15px;
+        }
 
-footer:hover {
-    background-color: #fd79d8;
-    transform: scale(1.02);
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-}
+        footer:hover {
+            background-color: #fd79d8;
+            transform: scale(1.02);
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
 
-footer input, footer button {
-    border-radius: 5px;
-    padding: 5px;
-}
+        footer input, footer button {
+            border-radius: 5px;
+            padding: 5px;
+        }
 
-footer input {
-    flex: 1;
-    border: 1px solid #f473d0;
-    box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
-}
+        footer input {
+            flex: 1;
+            border: 1px solid #f473d0;
+            box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+        }
 
-footer button {
-    margin-left: 10px;
-    background-color: #a77afd;
-    border: none;
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
+        footer button {
+            margin-left: 10px;
+            background-color: #a77afd;
+            border: none;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
 
-footer button:hover {
-    background-color: #b026d3;
-    transform: scale(1.1);
-}
+        footer button:hover {
+            background-color: #b026d3;
+            transform: scale(1.1);
+        }
 
-h1 {
-    font-size: 30px;
-    padding: 20px 0;
-    font-style: oblique;
-    text-align: center;
-    color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-}
+        h1 {
+            font-size: 30px;
+            padding: 20px 0;
+            font-style: oblique;
+            text-align: center;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+        }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-@media (max-width: 600px) {
-    body {
-        padding: 10px;
-    }
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
 
-    header, footer, main {
-        width: 90%;
-        margin: 0 auto;
-    }
+            header, footer, main {
+                width: 90%;
+                margin: 0 auto;
+            }
 
-    footer {
-        flex-direction: column;
-        text-align: center;
-    }
+            footer {
+                flex-direction: column;
+                text-align: center;
+            }
 
-    footer input,
-    footer button {
-        width: 100%;
-        margin: 5px 0;
-    }
-}
+            footer input,
+            footer button {
+                width: 100%;
+                margin: 5px 0;
+            }
+        }
 
-.pagina {
-    display: none;
-}
+        .pagina {
+            display: none;
+        }
 
-.pagina.ativa {
-    display: block;
-}
+        .pagina.ativa {
+            display: block;
+        }
+
+        #cart-icon {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        #cart-count {
+            margin-left: 5px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
     <header>
         <h1>Loja de Doces</h1>
+        <div id="cart-icon">
+            <span>🛒</span>
+            <span id="cart-count">0</span>
+        </div>
         <nav>
-            <button onclick="mostrarCatalogo()">Catálogo</button>
-            <button onclick="mostrarCarrinho()">Carrinho</button>
+            <button class="catalogo-btn" onclick="mostrarCatalogo()">Catálogo</button>
+            <button class="carrinho-btn" onclick="mostrarCarrinho()">Carrinho</button>
         </nav>
     </header>
 
     <!-- Página do Catálogo -->
-    <section id="catalogo" class="pagina">
+    <section id="catalogo" class="pagina ativa">
         <h2>Catálogo</h2>
         <ul id="catalogo-list">
             <li>
@@ -218,14 +240,12 @@ h1 {
                         <option value="Chocolate">Chocolate</option>
                         <option value="Baunilha">Baunilha</option>
                     </select>
-
                     <label for="cobertura-1">Escolha a cobertura:</label>
                     <select id="cobertura-1">
                         <option value="Brigadeiro">Brigadeiro</option>
                         <option value="Caramelo">Caramelo</option>
                         <option value="Morango">Morango</option>
                     </select>
-
                     <label for="confeitos-1">Escolha os confeitos:</label>
                     <select id="confeitos-1">
                         <option value="Granulado">Granulado</option>
@@ -236,7 +256,7 @@ h1 {
                 <button onclick="adicionarAoCarrinho('Mini Donut', 10.00, 'massa-1', 'cobertura-1', 'confeitos-1')">Adicionar ao Carrinho</button>
             </li>
             <li>
-                Cookie - R$ 5.00
+                Donut - R$ 15.00
                 <div class="opcoes">
                     <label for="massa-2">Escolha a massa:</label>
                     <select id="massa-2">
@@ -244,14 +264,12 @@ h1 {
                         <option value="Chocolate">Chocolate</option>
                         <option value="Baunilha">Baunilha</option>
                     </select>
-
                     <label for="cobertura-2">Escolha a cobertura:</label>
                     <select id="cobertura-2">
                         <option value="Brigadeiro">Brigadeiro</option>
                         <option value="Caramelo">Caramelo</option>
                         <option value="Morango">Morango</option>
                     </select>
-
                     <label for="confeitos-2">Escolha os confeitos:</label>
                     <select id="confeitos-2">
                         <option value="Granulado">Granulado</option>
@@ -259,7 +277,31 @@ h1 {
                         <option value="Coco Ralado">Coco Ralado</option>
                     </select>
                 </div>
-                <button onclick="adicionarAoCarrinho('Cookie', 5.00, 'massa-2', 'cobertura-2', 'confeitos-2')">Adicionar ao Carrinho</button>
+                <button onclick="adicionarAoCarrinho('Donut', 15.00, 'massa-2', 'cobertura-2', 'confeitos-2')">Adicionar ao Carrinho</button>
+            </li>
+            <li>
+                Donut Gigante - R$ 25.00
+                <div class="opcoes">
+                    <label for="massa-3">Escolha a massa:</label>
+                    <select id="massa-3">
+                        <option value="Tradicional">Tradicional</option>
+                        <option value="Chocolate">Chocolate</option>
+                        <option value="Baunilha">Baunilha</option>
+                    </select>
+                    <label for="cobertura-3">Escolha a cobertura:</label>
+                    <select id="cobertura-3">
+                        <option value="Brigadeiro">Brigadeiro</option>
+                        <option value="Caramelo">Caramelo</option>
+                        <option value="Morango">Morango</option>
+                    </select>
+                    <label for="confeitos-3">Escolha os confeitos:</label>
+                    <select id="confeitos-3">
+                        <option value="Granulado">Granulado</option>
+                        <option value="Confete">Confete</option>
+                        <option value="Coco Ralado">Coco Ralado</option>
+                    </select>
+                </div>
+                <button onclick="adicionarAoCarrinho('Donut Gigante', 25.00, 'massa-3', 'cobertura-3', 'confeitos-3')">Adicionar ao Carrinho</button>
             </li>
         </ul>
     </section>
@@ -268,100 +310,110 @@ h1 {
     <section id="carrinho" class="pagina">
         <h2>Carrinho</h2>
         <ul id="carrinho-list"></ul>
-        <div id="total">
-            <h3>Total: R$ <span id="total-valor">0.00</span></h3>
-        </div>
+        <p id="total">Total: R$ 0.00</p>
         <footer>
-            <input type="text" id="whatsapp-number" placeholder="Número do WhatsApp">
+            <input type="text" id="whatsapp-number" placeholder="Número do WhatsApp" />
             <button onclick="finalizarPedido()">Finalizar Pedido</button>
         </footer>
     </section>
 
     <script>
-        const catalogo = document.getElementById('catalogo');
-const carrinho = document.getElementById('carrinho');
-const catalogoButton = document.querySelector('header button:nth-of-type(1)');
-const carrinhoButton = document.querySelector('header button:nth-of-type(2)');
-const catalogoList = document.getElementById('catalogo-list');
-const carrinhoList = document.getElementById('carrinho-list');
-const totalValor = document.getElementById('total-valor');
-let carrinhoItems = [];
-let total = 0;
+        let carrinho = [];
+        let total = 0;
 
-function mostrarCatalogo() {
-    catalogo.classList.add('ativa');
-    carrinho.classList.remove('ativa');
-}
+        function mostrarCatalogo() {
+            document.getElementById('catalogo').classList.add('ativa');
+            document.getElementById('carrinho').classList.remove('ativa');
+        }
 
-function mostrarCarrinho() {
-    catalogo.classList.remove('ativa');
-    carrinho.classList.add('ativa');
-}
+        function mostrarCarrinho() {
+            document.getElementById('carrinho').classList.add('ativa');
+            document.getElementById('catalogo').classList.remove('ativa');
+            atualizarCarrinho();
+        }
 
-function adicionarAoCarrinho(nome, preco, massaId, coberturaId, confeitosId) {
-    const massa = document.getElementById(massaId).value;
-    const cobertura = document.getElementById(coberturaId).value;
-    const confeitos = document.getElementById(confeitosId).value;
+        function adicionarAoCarrinho(nome, preco, massaId, coberturaId, confeitosId) {
+            const massa = document.getElementById(massaId).value;
+            const cobertura = document.getElementById(coberturaId).value;
+            const confeitos = document.getElementById(confeitosId).value;
+            const item = {
+                nome: nome,
+                preco: preco,
+                massa: massa,
+                cobertura: cobertura,
+                confeitos: confeitos,
+                quantidade: 1
+            };
 
-    const item = { nome, preco, massa, cobertura, confeitos };
-    carrinhoItems.push(item);
-    atualizarCarrinho();
-}
+            const itemExistente = carrinho.find(i => i.nome === nome && i.massa === massa && i.cobertura === cobertura && i.confeitos === confeitos);
 
-function atualizarCarrinho() {
-    carrinhoList.innerHTML = '';
-    total = 0;
+            if (itemExistente) {
+                itemExistente.quantidade++;
+            } else {
+                carrinho.push(item);
+            }
+            total += preco;
+            document.getElementById('cart-count').innerText = carrinho.length;
+            alert('Item adicionado ao carrinho!');
+        }
 
-    carrinhoItems.forEach((item, index) => {
-        const li = document.createElement('li');
-        li.innerHTML = `
-            ${item.nome} - R$ ${item.preco.toFixed(2)}<br>
-            Massa: ${item.massa}<br>
-            Cobertura: ${item.cobertura}<br>
-            Confeitos: ${item.confeitos}<br>
-            <button class="decrease-button" onclick="decreaseItem(${index})">-</button>
-            <button class="increase-button" onclick="increaseItem(${index})">+</button>
-            <button class="delete-button" onclick="removerItem(${index})">Remover</button>
-        `;
-        carrinhoList.appendChild(li);
-        total += item.preco;
-    });
+        function removerDoCarrinho(nome, massa, cobertura, confeitos) {
+            const itemIndex = carrinho.findIndex(i => i.nome === nome && i.massa === massa && i.cobertura === cobertura && i.confeitos === confeitos);
+            if (itemIndex > -1) {
+                total -= carrinho[itemIndex].preco * carrinho[itemIndex].quantidade;
+                carrinho.splice(itemIndex, 1);
+            }
+            document.getElementById('cart-count').innerText = carrinho.length;
+            atualizarCarrinho();
+        }
 
-    totalValor.textContent = total.toFixed(2);
-}
+        function aumentarQuantidade(nome, massa, cobertura, confeitos) {
+            const itemExistente = carrinho.find(i => i.nome === nome && i.massa === massa && i.cobertura === cobertura && i.confeitos === confeitos);
+            if (itemExistente) {
+                itemExistente.quantidade++;
+                total += itemExistente.preco;
+            }
+            atualizarCarrinho();
+        }
 
-function removerItem(index) {
-    carrinhoItems.splice(index, 1);
-    atualizarCarrinho();
-}
+        function diminuirQuantidade(nome, massa, cobertura, confeitos) {
+            const itemExistente = carrinho.find(i => i.nome === nome && i.massa === massa && i.cobertura === cobertura && i.confeitos === confeitos);
+            if (itemExistente && itemExistente.quantidade > 1) {
+                itemExistente.quantidade--;
+                total -= itemExistente.preco;
+            }
+            atualizarCarrinho();
+        }
 
-function increaseItem(index) {
-    carrinhoItems[index].preco += 5; // Simples exemplo de aumento no preço
-    atualizarCarrinho();
-}
+        function atualizarCarrinho() {
+            const carrinhoList = document.getElementById('carrinho-list');
+            carrinhoList.innerHTML = '';
+            carrinho.forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = `${item.nome} (${item.massa}, ${item.cobertura}, ${item.confeitos}) - R$ ${item.preco.toFixed(2)} x ${item.quantidade}
+                    <button class="decrease-button" onclick="diminuirQuantidade('${item.nome}', '${item.massa}', '${item.cobertura}', '${item.confeitos}')">-</button>
+                    <button class="increase-button" onclick="aumentarQuantidade('${item.nome}', '${item.massa}', '${item.cobertura}', '${item.confeitos}')">+</button>
+                    <button class="delete-button" onclick="removerDoCarrinho('${item.nome}', '${item.massa}', '${item.cobertura}', '${item.confeitos}')">Remover</button>`;
+                carrinhoList.appendChild(li);
+            });
+            document.getElementById('total').innerText = `Total: R$ ${total.toFixed(2)}`;
+        }
 
-function decreaseItem(index) {
-    if (carrinhoItems[index].preco > 5) {
-        carrinhoItems[index].preco -= 5; // Simples exemplo de diminuição no preço
-    }
-    atualizarCarrinho();
-}
-
-function finalizarPedido() {
-    const whatsappNumber = document.getElementById('whatsapp-number').value;
-    if (whatsappNumber) {
-        const mensagem = `Pedido:\n${carrinhoItems.map(item => `${item.nome} - R$ ${item.preco.toFixed(2)}\nMassa: ${item.massa}\nCobertura: ${item.cobertura}\nConfeitos: ${item.confeitos}`).join('\n')}\nTotal: R$ ${total.toFixed(2)}`;
-        window.open(`https://wa.me/${48988478865}?text=${encodeURIComponent(mensagem)}`);
-    } else {
-        alert('Por favor, insira seu número do WhatsApp.');
-    }
-}
-
-catalogoButton.addEventListener('click', mostrarCatalogo);
-carrinhoButton.addEventListener('click', mostrarCarrinho);
-
-// Exibir a página de catálogo por padrão
-mostrarCatalogo();
+        function finalizarPedido() {
+            const whatsappNumber = document.getElementById('whatsapp-number').value;
+            if (!whatsappNumber) {
+                alert('Por favor, insira seu número do WhatsApp!');
+                return;
+            }
+            const mensagem = `Olá! Gostaria de fazer o pedido:\n${carrinho.map(item => `${item.nome} (${item.massa}, ${item.cobertura}, ${item.confeitos}) - Quantidade: ${item.quantidade}`).join('\n')}\nTotal: R$ ${total.toFixed(2)}`;
+            const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(mensagem)}`;
+            window.open(url);
+            // Limpar o carrinho após a finalização
+            carrinho = [];
+            total = 0;
+            document.getElementById('cart-count').innerText = 0;
+            atualizarCarrinho();
+        }
     </script>
 </body>
 </html>

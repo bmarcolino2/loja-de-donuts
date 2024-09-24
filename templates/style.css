@@ -25,6 +25,34 @@ header {
     margin-bottom: 20px;
     border-radius: 15px;
     transition: transform 0.3s ease;
+    header {
+        background-image: url('https://media.istockphoto.com/id/1157621780/pt/foto/colorful-sweet-background-delicious-glazed-donuts-on-pink-background.jpg?s=612x612&w=0&k=20&c=4z0-ZkFGgKKlOaCN6dekOpW7vrl0uXsDG2bIs_7Kc40= ');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0px 2px 4px rgba(210, 70, 168, 0.757);
+    }
+    
+    #catalogo {
+        background-image: url('https://i.pinimg.com/236x/3b/86/8f/3b868f0e4aca4ccaf4e11d4d0714662c.jpg');
+        background-size: cover;
+        background-position: center;
+        padding: 20px;
+        border-radius: 15px;
+        color: white;
+    }
+    
+    #carrinho {
+        background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1ESFPegeZFsUGcoagxnQc4ZNnuZ8v4VR-mA&s');
+        background-size: cover;
+        background-position: center;
+        padding: 20px;
+        border-radius: 15px;
+        color: white;
+    }
+    
 }
 
 header:hover {
@@ -187,3 +215,4 @@ h1 {
 .pagina.ativa {
     display: block;
 }
+
