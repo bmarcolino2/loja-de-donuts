@@ -4,215 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loja de Doces</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            min-height: 100vh;
-            font-family: Arial, Helvetica, sans-serif;
-            display: flex;
-            flex-direction: column;
-            background: radial-gradient(circle, #faf198, #f85fe1);
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            overflow-x: hidden;
-        }
-
-        header {
-            color: rgb(7, 7, 7);
-            font-size: 24px;
-            border-bottom: 1px solid #f66bc1;
-            box-shadow: 0px 2px 4px rgba(210, 70, 168, 0.757);
-            padding: 10px 20px;
-            margin-bottom: 20px;
-            border-radius: 15px;
-            transition: transform 0.3s ease;
-            background-image: url('https://media.istockphoto.com/id/1157621780/pt/foto/colorful-sweet-background-delicious-glazed-donuts-on-pink-background.jpg?s=612x612&w=0&k=20&c=4z0-ZkFGgKKlOaCN6dekOpW7vrl0uXsDG2bIs_7Kc40=');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0px 2px 4px rgba(210, 70, 168, 0.757);
-        }
-
-        header:hover {
-            transform: scale(1.05);
-        }
-
-        main {
-            flex: 1;
-            width: 100%;
-            max-width: 600px;
-            border-radius: 30px;
-            color: rgba(5, 5, 5, 0.918);
-            padding: 10px 20px;
-            margin-bottom: 20px;
-            background: rgba(255, 255, 255, 0.8);
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 1s ease-in-out;
-        }
-
-        main ul {
-            padding: 0;
-            list-style-type: none;
-        }
-
-        main li {
-            padding: 10px;
-            background-color: #f685b7;
-            border-bottom: 1px solid rgb(154, 19, 64);
-            margin-bottom: 5px;
-            border-radius: 5px;
-            border-style: dashed;
-            border-color: #000000;
-            color: aliceblue;
-            font-style: oblique;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-        }
-
-        main li:hover {
-            background-color: #f34ee0;
-            transform: scale(1.05);
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .delete-button, .decrease-button, .increase-button {
-            border: none;
-            border-radius: 5px;
-            color: white;
-            padding: 5px 10px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            margin-left: 10px;
-        }
-
-        .delete-button {
-            background-color: #ff80bf;
-        }
-
-        .delete-button:hover {
-            background-color: #d94a8c;
-        }
-
-        .decrease-button, .increase-button {
-            background-color: #ff80bf;
-            font-size: 16px;
-            padding: 8px 14px;
-        }
-
-        .decrease-button:hover, .increase-button:hover {
-            background-color: #ff80bf;
-            transform: scale(1.1);
-        }
-
-        footer {
-            width: 100%;
-            max-width: 600px;
-            display: flex;
-            padding: 10px 20px;
-            background: radial-gradient(circle, #f881e6, #fff79d);
-            border: 2px dashed rgb(186, 59, 249);
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            border-radius: 15px;
-        }
-
-        footer:hover {
-            background-color: #fd79d8;
-            transform: scale(1.02);
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        footer input, footer button {
-            border-radius: 5px;
-            padding: 5px;
-        }
-
-        footer input {
-            flex: 1;
-            border: 1px solid #f473d0;
-            box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
-        }
-
-        footer button {
-            margin-left: 10px;
-            background-color: #a77afd;
-            border: none;
-            color: white;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        footer button:hover {
-            background-color: #b026d3;
-            transform: scale(1.1);
-        }
-
-        h1 {
-            font-size: 30px;
-            padding: 20px 0;
-            font-style: oblique;
-            text-align: center;
-            color: #ffffff;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @media (max-width: 600px) {
-            body {
-                padding: 10px;
-            }
-
-            header, footer, main {
-                width: 90%;
-                margin: 0 auto;
-            }
-
-            footer {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            footer input,
-            footer button {
-                width: 100%;
-                margin: 5px 0;
-            }
-        }
-
-        .pagina {
-            display: none;
-        }
-
-        .pagina.ativa {
-            display: block;
-        }
-
-        #cart-icon {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-        }
-
-        #cart-count {
-            margin-left: 5px;
-            font-weight: bold;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
@@ -232,76 +24,86 @@
         <h2>Catálogo</h2>
         <ul id="catalogo-list">
             <li>
-                Mini Donut - R$ 10.00
+                Mini Donut - R$ 15.00
                 <div class="opcoes">
                     <label for="massa-1">Escolha a massa:</label>
                     <select id="massa-1">
                         <option value="Tradicional">Tradicional</option>
-                        <option value="Chocolate">Chocolate</option>
-                        <option value="Baunilha">Baunilha</option>
+                        <option value="Baunilha">Chocolate</option>
+                        <option value="Baunilha">Morango</option>
+
                     </select>
                     <label for="cobertura-1">Escolha a cobertura:</label>
                     <select id="cobertura-1">
-                        <option value="Brigadeiro">Brigadeiro</option>
-                        <option value="Caramelo">Caramelo</option>
-                        <option value="Morango">Morango</option>
+                        <option value="Brigadeiro">Chocolate ao Leite</option>
+                        <option value="Caramelo">Chocolate Branco</option>
+                        <option value="Morango">Açúcar e Canela</option>
+                        <option value="Morango">Chocolate com avelã</option>
+                        <option value="Morango">Meio Amargo</option>
                     </select>
                     <label for="confeitos-1">Escolha os confeitos:</label>
                     <select id="confeitos-1">
                         <option value="Granulado">Granulado</option>
                         <option value="Confete">Confete</option>
                         <option value="Coco Ralado">Coco Ralado</option>
+                        <option value="Coco Ralado">Apenas riscos de chocolate</option>
                     </select>
                 </div>
-                <button onclick="adicionarAoCarrinho('Mini Donut', 10.00, 'massa-1', 'cobertura-1', 'confeitos-1')">Adicionar ao Carrinho</button>
+                <button onclick="adicionarAoCarrinho('Mini Donut', 15.00, 'massa-1', 'cobertura-1', 'confeitos-1')">Adicionar ao Carrinho</button>
             </li>
             <li>
-                Donut - R$ 15.00
+                Mini Donut Sem açucar, Glúten- R$ 15.00
                 <div class="opcoes">
                     <label for="massa-2">Escolha a massa:</label>
                     <select id="massa-2">
-                        <option value="Tradicional">Tradicional</option>
-                        <option value="Chocolate">Chocolate</option>
-                        <option value="Baunilha">Baunilha</option>
+                        <option value="Chocolate">Tradicional S/açúcar, Glúten</option>
+                        <option value="Baunilha">Chocolate S/açúcar, Glúten</option>
+                        <option value="Baunilha">Morango S/açúcar, Glúten</option>
                     </select>
                     <label for="cobertura-2">Escolha a cobertura:</label>
                     <select id="cobertura-2">
-                        <option value="Brigadeiro">Brigadeiro</option>
-                        <option value="Caramelo">Caramelo</option>
-                        <option value="Morango">Morango</option>
+                        <option value="Brigadeiro">Chocolate ao Leite</option>
+                        <option value="Caramelo">Chocolate Branco</option>
+                        <option value="Morango">Açúcar e Canela</option>
+                        <option value="Morango">Chocolate com avelã</option>
+                        <option value="Morango">Meio Amargo</option>
                     </select>
                     <label for="confeitos-2">Escolha os confeitos:</label>
                     <select id="confeitos-2">
                         <option value="Granulado">Granulado</option>
                         <option value="Confete">Confete</option>
                         <option value="Coco Ralado">Coco Ralado</option>
+                        <option value="Coco Ralado">Apenas riscos de chocolate</option>
                     </select>
                 </div>
-                <button onclick="adicionarAoCarrinho('Donut', 15.00, 'massa-2', 'cobertura-2', 'confeitos-2')">Adicionar ao Carrinho</button>
+                <button onclick="adicionarAoCarrinho('Mini Donut S/açúcar, glúten', 15.00, 'massa-2', 'cobertura-2', 'confeitos-2')">Adicionar ao Carrinho</button>
             </li>
             <li>
-                Donut Gigante - R$ 25.00
+                Mini Donut Proteíco - R$ 20.00
                 <div class="opcoes">
                     <label for="massa-3">Escolha a massa:</label>
                     <select id="massa-3">
-                        <option value="Tradicional">Tradicional</option>
-                        <option value="Chocolate">Chocolate</option>
-                        <option value="Baunilha">Baunilha</option>
+                        <option value="Chocolate">Tradicional com Whey Protein concentrado</option>
+                        <option value="Chocolate">Chocolate com Whey Protein concentrado</option>
+                        <option value="Chocolate">Morango com Whey Protein concentrado</option>
                     </select>
                     <label for="cobertura-3">Escolha a cobertura:</label>
                     <select id="cobertura-3">
-                        <option value="Brigadeiro">Brigadeiro</option>
-                        <option value="Caramelo">Caramelo</option>
-                        <option value="Morango">Morango</option>
+                        <option value="Brigadeiro">Chocolate ao Leite</option>
+                        <option value="Caramelo">Chocolate Branco</option>
+                        <option value="Morango">Açúcar e Canela</option>
+                        <option value="Morango">Chocolate com avelã</option>
+                        <option value="Morango">Meio Amargo</option>
                     </select>
                     <label for="confeitos-3">Escolha os confeitos:</label>
                     <select id="confeitos-3">
                         <option value="Granulado">Granulado</option>
                         <option value="Confete">Confete</option>
                         <option value="Coco Ralado">Coco Ralado</option>
+                        <option value="Coco Ralado">Apenas riscos de chocolate</option>
                     </select>
                 </div>
-                <button onclick="adicionarAoCarrinho('Donut Gigante', 25.00, 'massa-3', 'cobertura-3', 'confeitos-3')">Adicionar ao Carrinho</button>
+                <button onclick="adicionarAoCarrinho('Mini Donut Proteico', 20.00, 'massa-3', 'cobertura-3', 'confeitos-3')">Adicionar ao Carrinho</button>
             </li>
         </ul>
     </section>
