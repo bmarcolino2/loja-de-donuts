@@ -1,220 +1,422 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Loja de Doces</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            flex-direction: column;
+            background: radial-gradient(circle, #faf198, #f85fe1);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        header {
+            color: rgb(7, 7, 7);
+            font-size: 24px;
+            border-bottom: 1px solid #f66bc1;
+            box-shadow: 0px 2px 4px rgba(210, 70, 168, 0.757);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            background-image: url('https://media.istockphoto.com/id/1157621780/pt/foto/colorful-sweet-background-delicious-glazed-donuts-on-pink-background.jpg?s=612x612&w=0&k=20&c=4z0-ZkFGgKKlOaCN6dekOpW7vrl0uXsDG2bIs_7Kc40=');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        header:hover {
+            transform: scale(1.05);
+        }
+
+        main {
+            flex: 1;
+            width: 100%;
+            max-width: 600px;
+            border-radius: 30px;
+            color: rgba(5, 5, 5, 0.918);
+            padding: 10px 20px;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h1 {
+            font-size: 30px;
+            padding: 20px 0;
+            font-style: oblique;
+            text-align: center;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+        }
+
+        button {
+            background-color: #a7288c;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        button:hover {
+            background-color: #711853;
+        }
+
+        .pagina {
+            display: none;
+        }
+
+        .pagina.ativa {
+            display: block;
+        }
+
+        #cart-icon {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        #cart-count {
+            margin-left: 5px;
+            font-weight: bold;
+        }
+
+        /* Estilos para o carrinho */
+        #carrinho {
+            display: none;
+            margin: 20px auto;
+            max-width: 600px;
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .delete-button, .decrease-button, .increase-button {
+            border: none;
+            border-radius: 5px;
+            color: white;
+            padding: 5px 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-left: 10px;
+        }
+
+        .delete-button {
+            background-color: #ff80bf;
+        }
+
+        .delete-button:hover {
+            background-color: #d94a8c;
+        }
+
+        .decrease-button, .increase-button {
+            background-color: #ff80bf;
+            font-size: 16px;
+            padding: 8px 14px;
+        }
+
+        .decrease-button:hover, .increase-button:hover {
+            background-color: #ff80bf;
+            transform: scale(1.1);
+        }
+
+        footer {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            padding: 10px 20px;
+            background: radial-gradient(circle, #f881e6, #fff79d);
+            border: 2px dashed rgb(186, 59, 249);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            border-radius: 15px;
+        }
+
+        footer:hover {
+            background-color: #fd79d8;
+            transform: scale(1.02);
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        footer input, footer button {
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        footer input {
+            flex: 1;
+            border: 1px solid #f473d0;
+            box-shadow: inset 0px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        footer button {
+            margin-left: 10px;
+            background-color: #a77afd;
+            border: none;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        footer button:hover {
+            background-color: #b026d3;
+            transform: scale(1.1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            header, footer, main {
+                width: 90%;
+                margin: 0 auto;
+            }
+
+            footer {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            footer input,
+            footer button {
+                width: 100%;
+                margin: 5px 0;
+            }
+        }
+
+        /* Estilos novos para a parte de pagamento */
+        .payment-option {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .payment-option label {
+            margin-right: 10px;
+        }
+
+        #payment-options {
+            margin: 20px 0;
+        }
+
+        #troco-container {
+            display: none;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Loja de Doces</h1>
-        <div id="cart-icon">
-            <span>🛒</span>
-            <span id="cart-count">0</span>
+        <h1>Bem-vindo à Nossa Loja de Doces!</h1>
+        <div id="cart-icon" onclick="mostrarCarrinho()">
+            🛒 <span id="cart-count">0</span>
         </div>
-        <nav>
-            <button class="catalogo-btn" onclick="mostrarCatalogo()">Catálogo</button>
-            <button class="carrinho-btn" onclick="mostrarCarrinho()">Carrinho</button>
-        </nav>
     </header>
 
-    <!-- Página do Catálogo -->
-    <section id="catalogo" class="pagina ativa">
-        <h2>Catálogo</h2>
-        <ul id="catalogo-list">
-            <li>
-                Mini Donut - R$ 15.00
-                <div class="opcoes">
-                    <label for="massa-1">Escolha a massa:</label>
-                    <select id="massa-1">
-                        <option value="Tradicional">Tradicional</option>
-                        <option value="Baunilha">Chocolate</option>
-                        <option value="Baunilha">Morango</option>
+    <div id="catalogo" class="pagina ativa">
+        <h2>Catálogo de Doces</h2>
+        <div>
+            <h3>Mini Donut</h3>
+            <select id="massa-mini">
+                <option value="Tradicional">Massa Tradicional</option>
+                <option value="Sem Glúten">Massa Sem Glúten</option>
+            </select>
+            <select id="cobertura-mini">
+                <option value="Chocolate">Cobertura de Chocolate</option>
+                <option value="Baunilha">Cobertura de Baunilha</option>
+            </select>
+            <select id="confeitos-mini">
+                <option value="Granulado">Granulado</option>
+                <option value="Coco">Coco Ralado</option>
+            </select>
+            <button onclick="adicionarAoCarrinho('Mini Donut', 5.00, 'massa-mini', 'cobertura-mini', 'confeitos-mini')">Adicionar ao Carrinho</button>
+        </div>
+        <div>
+            <h3>Mini Donut Sem Açúcar</h3>
+            <select id="massa-sem-acucar">
+                <option value="Tradicional">Massa Tradicional</option>
+                <option value="Sem Glúten">Massa Sem Glúten</option>
+            </select>
+            <select id="cobertura-sem-acucar">
+                <option value="Chocolate">Cobertura de Chocolate</option>
+                <option value="Baunilha">Cobertura de Baunilha</option>
+            </select>
+            <select id="confeitos-sem-acucar">
+                <option value="Granulado">Granulado</option>
+                <option value="Coco">Coco Ralado</option>
+            </select>
+            <button onclick="adicionarAoCarrinho('Mini Donut Sem Açúcar', 6.00, 'massa-sem-acucar', 'cobertura-sem-acucar', 'confeitos-sem-acucar')">Adicionar ao Carrinho</button>
+        </div>
+        <div>
+            <h3>Mini Donut Proteico</h3>
+            <select id="massa-proteico">
+                <option value="Tradicional">Massa Tradicional</option>
+                <option value="Sem Glúten">Massa Sem Glúten</option>
+            </select>
+            <select id="cobertura-proteico">
+                <option value="Chocolate">Cobertura de Chocolate</option>
+                <option value="Baunilha">Cobertura de Baunilha</option>
+            </select>
+            <select id="confeitos-proteico">
+                <option value="Granulado">Granulado</option>
+                <option value="Coco">Coco Ralado</option>
+            </select>
+            <button onclick="adicionarAoCarrinho('Mini Donut Proteico', 7.00, 'massa-proteico', 'cobertura-proteico', 'confeitos-proteico')">Adicionar ao Carrinho</button>
+        </div>
+        <button onclick="mostrarCarrinho()">Ver Carrinho</button>
+    </div>
 
-                    </select>
-                    <label for="cobertura-1">Escolha a cobertura:</label>
-                    <select id="cobertura-1">
-                        <option value="Brigadeiro">Chocolate ao Leite</option>
-                        <option value="Caramelo">Chocolate Branco</option>
-                        <option value="Morango">Açúcar e Canela</option>
-                        <option value="Morango">Chocolate com avelã</option>
-                        <option value="Morango">Meio Amargo</option>
-                    </select>
-                    <label for="confeitos-1">Escolha os confeitos:</label>
-                    <select id="confeitos-1">
-                        <option value="Granulado">Granulado</option>
-                        <option value="Confete">Confete</option>
-                        <option value="Coco Ralado">Coco Ralado</option>
-                        <option value="Coco Ralado">Apenas riscos de chocolate</option>
-                    </select>
-                </div>
-                <button onclick="adicionarAoCarrinho('Mini Donut', 15.00, 'massa-1', 'cobertura-1', 'confeitos-1')">Adicionar ao Carrinho</button>
-            </li>
-            <li>
-                Mini Donut Sem açucar, Glúten- R$ 15.00
-                <div class="opcoes">
-                    <label for="massa-2">Escolha a massa:</label>
-                    <select id="massa-2">
-                        <option value="Chocolate">Tradicional S/açúcar, Glúten</option>
-                        <option value="Baunilha">Chocolate S/açúcar, Glúten</option>
-                        <option value="Baunilha">Morango S/açúcar, Glúten</option>
-                    </select>
-                    <label for="cobertura-2">Escolha a cobertura:</label>
-                    <select id="cobertura-2">
-                        <option value="Brigadeiro">Chocolate ao Leite</option>
-                        <option value="Caramelo">Chocolate Branco</option>
-                        <option value="Morango">Açúcar e Canela</option>
-                        <option value="Morango">Chocolate com avelã</option>
-                        <option value="Morango">Meio Amargo</option>
-                    </select>
-                    <label for="confeitos-2">Escolha os confeitos:</label>
-                    <select id="confeitos-2">
-                        <option value="Granulado">Granulado</option>
-                        <option value="Confete">Confete</option>
-                        <option value="Coco Ralado">Coco Ralado</option>
-                        <option value="Coco Ralado">Apenas riscos de chocolate</option>
-                    </select>
-                </div>
-                <button onclick="adicionarAoCarrinho('Mini Donut S/açúcar, glúten', 15.00, 'massa-2', 'cobertura-2', 'confeitos-2')">Adicionar ao Carrinho</button>
-            </li>
-            <li>
-                Mini Donut Proteíco - R$ 20.00
-                <div class="opcoes">
-                    <label for="massa-3">Escolha a massa:</label>
-                    <select id="massa-3">
-                        <option value="Chocolate">Tradicional com Whey Protein concentrado</option>
-                        <option value="Chocolate">Chocolate com Whey Protein concentrado</option>
-                        <option value="Chocolate">Morango com Whey Protein concentrado</option>
-                    </select>
-                    <label for="cobertura-3">Escolha a cobertura:</label>
-                    <select id="cobertura-3">
-                        <option value="Brigadeiro">Chocolate ao Leite</option>
-                        <option value="Caramelo">Chocolate Branco</option>
-                        <option value="Morango">Açúcar e Canela</option>
-                        <option value="Morango">Chocolate com avelã</option>
-                        <option value="Morango">Meio Amargo</option>
-                    </select>
-                    <label for="confeitos-3">Escolha os confeitos:</label>
-                    <select id="confeitos-3">
-                        <option value="Granulado">Granulado</option>
-                        <option value="Confete">Confete</option>
-                        <option value="Coco Ralado">Coco Ralado</option>
-                        <option value="Coco Ralado">Apenas riscos de chocolate</option>
-                    </select>
-                </div>
-                <button onclick="adicionarAoCarrinho('Mini Donut Proteico', 20.00, 'massa-3', 'cobertura-3', 'confeitos-3')">Adicionar ao Carrinho</button>
-            </li>
-        </ul>
-    </section>
-
-    <!-- Página do Carrinho -->
-    <section id="carrinho" class="pagina">
+    <div id="carrinho" class="pagina">
         <h2>Carrinho</h2>
-        <ul id="carrinho-list"></ul>
-        <p id="total">Total: R$ 0.00</p>
+        <div id="itens-carrinho"></div>
+        <div id="total-carrinho">Total: R$ 0.00</div>
         <footer>
-            <input type="text" id="whatsapp-number" placeholder="Número do WhatsApp" />
+            <div id="payment-options">
+                <h3>Opções de Pagamento</h3>
+                <div class="payment-option">
+                    <input type="radio" id="cartao-credito" name="pagamento" value="cartao-credito">
+                    <label for="cartao-credito">Cartão de Crédito</label>
+                </div>
+                <div class="payment-option">
+                    <input type="radio" id="cartao-debito" name="pagamento" value="cartao-debito">
+                    <label for="cartao-debito">Cartão de Débito</label>
+                </div>
+                <div class="payment-option">
+                    <input type="radio" id="pix" name="pagamento" value="pix">
+                    <label for="pix">Pix</label>
+                </div>
+                <div class="payment-option">
+                    <input type="radio" id="dinheiro" name="pagamento" value="dinheiro" onclick="mostrarTrocoContainer()">
+                    <label for="dinheiro">Dinheiro</label>
+                </div>
+                <div id="troco-container">
+                    <input type="number" id="valor-entregue" placeholder="Valor Entregue">
+                    <button onclick="calcularTroco()">Calcular Troco</button>
+                    <div id="troco"></div>
+                </div>
+            </div>
             <button onclick="finalizarPedido()">Finalizar Pedido</button>
         </footer>
-    </section>
+    </div>
 
     <script>
         let carrinho = [];
-        let total = 0;
-
-        function mostrarCatalogo() {
-            document.getElementById('catalogo').classList.add('ativa');
-            document.getElementById('carrinho').classList.remove('ativa');
-        }
-
-        function mostrarCarrinho() {
-            document.getElementById('carrinho').classList.add('ativa');
-            document.getElementById('catalogo').classList.remove('ativa');
-            atualizarCarrinho();
-        }
+        let totalCarrinho = 0;
 
         function adicionarAoCarrinho(nome, preco, massaId, coberturaId, confeitosId) {
             const massa = document.getElementById(massaId).value;
             const cobertura = document.getElementById(coberturaId).value;
             const confeitos = document.getElementById(confeitosId).value;
+
             const item = {
-                nome: nome,
-                preco: preco,
-                massa: massa,
-                cobertura: cobertura,
-                confeitos: confeitos,
-                quantidade: 1
+                nome,
+                preco,
+                massa,
+                cobertura,
+                confeitos
             };
 
-            const itemExistente = carrinho.find(i => i.nome === nome && i.massa === massa && i.cobertura === cobertura && i.confeitos === confeitos);
-
-            if (itemExistente) {
-                itemExistente.quantidade++;
-            } else {
-                carrinho.push(item);
-            }
-            total += preco;
-            document.getElementById('cart-count').innerText = carrinho.length;
-            alert('Item adicionado ao carrinho!');
-        }
-
-        function removerDoCarrinho(nome, massa, cobertura, confeitos) {
-            const itemIndex = carrinho.findIndex(i => i.nome === nome && i.massa === massa && i.cobertura === cobertura && i.confeitos === confeitos);
-            if (itemIndex > -1) {
-                total -= carrinho[itemIndex].preco * carrinho[itemIndex].quantidade;
-                carrinho.splice(itemIndex, 1);
-            }
-            document.getElementById('cart-count').innerText = carrinho.length;
+            carrinho.push(item);
+            totalCarrinho += preco;
             atualizarCarrinho();
-        }
-
-        function aumentarQuantidade(nome, massa, cobertura, confeitos) {
-            const itemExistente = carrinho.find(i => i.nome === nome && i.massa === massa && i.cobertura === cobertura && i.confeitos === confeitos);
-            if (itemExistente) {
-                itemExistente.quantidade++;
-                total += itemExistente.preco;
-            }
-            atualizarCarrinho();
-        }
-
-        function diminuirQuantidade(nome, massa, cobertura, confeitos) {
-            const itemExistente = carrinho.find(i => i.nome === nome && i.massa === massa && i.cobertura === cobertura && i.confeitos === confeitos);
-            if (itemExistente && itemExistente.quantidade > 1) {
-                itemExistente.quantidade--;
-                total -= itemExistente.preco;
-            }
-            atualizarCarrinho();
+            alert(`${nome} adicionado ao carrinho!`);
         }
 
         function atualizarCarrinho() {
-            const carrinhoList = document.getElementById('carrinho-list');
-            carrinhoList.innerHTML = '';
-            carrinho.forEach(item => {
-                const li = document.createElement('li');
-                li.innerHTML = `${item.nome} (${item.massa}, ${item.cobertura}, ${item.confeitos}) - R$ ${item.preco.toFixed(2)} x ${item.quantidade}
-                    <button class="decrease-button" onclick="diminuirQuantidade('${item.nome}', '${item.massa}', '${item.cobertura}', '${item.confeitos}')">-</button>
-                    <button class="increase-button" onclick="aumentarQuantidade('${item.nome}', '${item.massa}', '${item.cobertura}', '${item.confeitos}')">+</button>
-                    <button class="delete-button" onclick="removerDoCarrinho('${item.nome}', '${item.massa}', '${item.cobertura}', '${item.confeitos}')">Remover</button>`;
-                carrinhoList.appendChild(li);
+            const itensCarrinho = document.getElementById('itens-carrinho');
+            const totalElement = document.getElementById('total-carrinho');
+            itensCarrinho.innerHTML = '';
+            carrinho.forEach((item, index) => {
+                itensCarrinho.innerHTML += `
+                    <div>
+                        ${item.nome} - R$ ${item.preco.toFixed(2)} 
+                        <button class="decrease-button" onclick="removerDoCarrinho(${index})">-</button>
+                        <button class="increase-button" onclick="adicionarMais(${index})">+</button>
+                        <button class="delete-button" onclick="removerDoCarrinho(${index})">Remover</button>
+                    </div>
+                `;
             });
-            document.getElementById('total').innerText = `Total: R$ ${total.toFixed(2)}`;
+            totalElement.innerHTML = `Total: R$ ${totalCarrinho.toFixed(2)}`;
+            document.getElementById('cart-count').innerText = carrinho.length;
+        }
+
+        function removerDoCarrinho(index) {
+            const item = carrinho[index];
+            totalCarrinho -= item.preco;
+            carrinho.splice(index, 1);
+            atualizarCarrinho();
+        }
+
+        function adicionarMais(index) {
+            const item = carrinho[index];
+            totalCarrinho += item.preco;
+            atualizarCarrinho();
+        }
+
+        function mostrarCarrinho() {
+            const catalogo = document.getElementById('catalogo');
+            const carrinhoDiv = document.getElementById('carrinho');
+
+            catalogo.classList.remove('ativa');
+            carrinhoDiv.classList.add('ativa');
+        }
+
+        function mostrarTrocoContainer() {
+            const trocoContainer = document.getElementById('troco-container');
+            trocoContainer.style.display = 'block';
+        }
+
+        function calcularTroco() {
+            const valorEntregue = parseFloat(document.getElementById('valor-entregue').value);
+            const troco = valorEntregue - totalCarrinho;
+            const trocoElement = document.getElementById('troco');
+            if (troco >= 0) {
+                trocoElement.innerHTML = `Troco: R$ ${troco.toFixed(2)}`;
+            } else {
+                trocoElement.innerHTML = `Valor insuficiente!`;
+            }
         }
 
         function finalizarPedido() {
-            const whatsappNumber = document.getElementById('whatsapp-number').value;
-            if (!whatsappNumber) {
-                alert('Por favor, insira seu número do WhatsApp!');
+            if (carrinho.length === 0) {
+                alert('O carrinho está vazio!');
                 return;
             }
-            const mensagem = `Olá! Gostaria de fazer o pedido:\n${carrinho.map(item => `${item.nome} (${item.massa}, ${item.cobertura}, ${item.confeitos}) - Quantidade: ${item.quantidade}`).join('\n')}\nTotal: R$ ${total.toFixed(2)}`;
-            const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(mensagem)}`;
-            window.open(url);
-            // Limpar o carrinho após a finalização
+            const formaPagamento = document.querySelector('input[name="pagamento"]:checked');
+            if (!formaPagamento) {
+                alert('Por favor, escolha uma forma de pagamento!');
+                return;
+            }
+            alert('Pedido finalizado com sucesso! Obrigado pela compra!');
             carrinho = [];
-            total = 0;
-            document.getElementById('cart-count').innerText = 0;
+            totalCarrinho = 0;
             atualizarCarrinho();
+            document.getElementById('carrinho').style.display = 'none';
+            document.getElementById('catalogo').style.display = 'block';
         }
     </script>
 </body>
